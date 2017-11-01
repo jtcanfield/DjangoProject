@@ -8,3 +8,7 @@ def greeting_view(request):
 
 def goodby_view(request):
     return HttpResponse("Goodbye!")
+
+def bmicalc(request):
+    pass
+    return render(request, "greeting.html")
