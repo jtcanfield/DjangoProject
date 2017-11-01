@@ -10,5 +10,8 @@ def goodby_view(request):
     return HttpResponse("Goodbye!")
 
 def bmicalc(request):
-    pass
-    return render(request, "greeting.html")
+    return render(request, "bmicalc.html")
+
+def bmi(request):
+    form = BMIForm()
+    render(request, "bmicalc.html", {"form": form})

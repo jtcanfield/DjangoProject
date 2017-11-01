@@ -1,3 +1,9 @@
+Keep eye on:
+settings/views.py
+settings/settings.py
+core/views.py
+
+
 To start:
 django-admin.py startproject firstdjangoproject
 cd /firstdjangoproject
