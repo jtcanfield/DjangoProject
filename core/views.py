@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from core.forms import BMIForm
 
 # Create your views here.
 
@@ -9,9 +10,7 @@ def greeting_view(request):
 def goodby_view(request):
     return HttpResponse("Goodbye!")
 
-def bmicalc(request):
-    return render(request, "bmicalc.html")
-
 def bmi(request):
+    if request.method == "POST"
     form = BMIForm()
-    render(request, "bmicalc.html", {"form": form})
+    return render(request, "bmicalc.html", {"form": form})
