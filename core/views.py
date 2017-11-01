@@ -12,7 +12,7 @@ def goodbye_view(request):
 
 def bmi(request):
     if request.method == "POST":
-        form = BMIForm(request.post)
+        form = BMIForm(request.POST)
         if form.is_valid():
             height = form.cleaned_data['height']
             weight = form.cleaned_data['weight']

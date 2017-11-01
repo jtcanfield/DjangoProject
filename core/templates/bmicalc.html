@@ -2,12 +2,12 @@
 
 {% block body %}
   <h1> Calculate your BMI </h1>
-  <form action="/bmi" method="POST">
+  <form action="/bmi/" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit">
+    <input type="submit" value="Calculate" />
   </form>
   {% if bmi %}
     <h1>your bmi is {{bmi}}</h1>
-  {% end if %}
+  {% endif %}
 {% endblock %}
