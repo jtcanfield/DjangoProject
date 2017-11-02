@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from core.forms import BMIForm
+from core.forms import BmiMeasurement
 
 # Create your views here.
 
@@ -27,8 +28,9 @@ def bmi_measurement(request):
         form = BMIMeasurementForm(request.POST)
         if form.is_valid():
             measurement = form.save()
+            pastmeasurements = BmiMeasurement.objects.order_by("measured_at").all()
             return render(request, "measurement_recorded.html",
-        {"measurement" : measurement})
+        {"measurement" : measurement, "pastmeasurements":pastmeasurements})
     else:
         form = BMIMeasurementForm()
     return render(request, "measurement.html", {"form": form})
