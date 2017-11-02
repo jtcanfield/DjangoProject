@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from core.views import greeting_view
 from core.views import bmi
+from core.views import bmi_measurement
 from core.views import goodbye_view
 
 # ^ beginning of string
@@ -24,6 +25,7 @@ from core.views import goodbye_view
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^bmi', bmi),
+    url(r'^bmimeasurement', bmi_measurement),
     url(r'^goodbye', goodbye_view),
     url(r'^$', greeting_view),
 ]
