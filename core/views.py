@@ -21,3 +21,14 @@ def bmi(request):
     else:
         form = BMIForm()
     return render(request, "bmicalc.html", {"form": form})
+
+def bmi_measurement(request):
+    if request.method == "POST":
+        form = BMIMeasurementForm(request.POST)
+        if form.is_valid():
+            measurement = form.save()
+            return render(request, "measurement_recorded.html",
+        {"measurement" : measurement})
+    else:
+        form = BMIMeasurementForm()
+    return render(request, "measurement.html", {"form": form})

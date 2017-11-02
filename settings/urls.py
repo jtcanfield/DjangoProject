@@ -19,6 +19,8 @@ from core.views import greeting_view
 from core.views import bmi
 from core.views import goodbye_view
 
+# ^ beginning of string
+# $ end of string
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^bmi', bmi),
