@@ -24,8 +24,8 @@ from core.views import goodbye_view
 # $ end of string
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^bmi', bmi),
     url(r'^bmimeasurement', bmi_measurement),
+    url(r'^bmi', bmi),
     url(r'^goodbye', goodbye_view),
     url(r'^$', greeting_view),
 ]

@@ -2,5 +2,18 @@
 
 {% block body %}
   <h1>Your Measurement has Been Saved</h1>
-  {% for measurement in pastmeasurements %}
+  <table>
+    <tr>
+      <th>Height in m</th>
+      <th>Weight in kg</th>
+      <th>BMI</th>
+    </tr>
+    <tr>
+      {% for measurement in pastmeasurements %}
+      <td>{{ measurement.height_in_meters }}</td>
+      <td>{{ measurement.weight_in_kg }}</td>
+      <td>{{ measurement.bmi }}</td>
+    </tr>
+    {% endfor %}
+  </table>
 {% endblock %}

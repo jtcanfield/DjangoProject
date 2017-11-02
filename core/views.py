@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from core.forms import BMIForm
-from core.forms import BmiMeasurement
+from core.forms import BMIForm, BMIMeasurementForm
+from core.models import BmiMeasurement
 
 # Create your views here.
 
@@ -24,13 +24,13 @@ def bmi(request):
     return render(request, "bmicalc.html", {"form": form})
 
 def bmi_measurement(request):
+    pastmeasurements = BmiMeasurement.objects.order_by("measured_at").all()
     if request.method == "POST":
         form = BMIMeasurementForm(request.POST)
         if form.is_valid():
             measurement = form.save()
-            pastmeasurements = BmiMeasurement.objects.order_by("measured_at").all()
             return render(request, "measurement_recorded.html",
         {"measurement" : measurement, "pastmeasurements":pastmeasurements})
     else:
         form = BMIMeasurementForm()
-    return render(request, "measurement.html", {"form": form})
+    return render(request, "measurement.html", {"form": form,"pastmeasurements":pastmeasurements})

@@ -2,13 +2,23 @@
 
 {% block body %}
   <h1> Calculate your BMI </h1>
-  <form action="/bmi/" method="POST">
+  <form action="/bmimeasurement/" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Save Measurement" />
   </form>
-  {% if bmi %}
-    <p>Your bmi is {{bmi}}</p>
-    <p>Bmi Recorded!</p>
-  {% endif %}
+  <table>
+    <tr>
+      <th>Height in m</th>
+      <th>Weight in kg</th>
+      <th>BMI</th>
+    </tr>
+    {% for measurement in pastmeasurements %}
+    <tr>
+      <td>{{ measurement.height_in_meters }}</td>
+      <td>{{ measurement.weight_in_kg }}</td>
+      <td>{{ measurement.bmi }}</td>
+    </tr>
+    {% endfor %}
+  </table>
 {% endblock %}
